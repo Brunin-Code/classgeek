@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Pius</h1>
+
+<table class="table table-dark">
+  <thead>
+    <tr>
+      <th>User</th>
+      <th>Content</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @pius.order(id: :desc).each do |piu| %>
+      <tr>
+        <td ><%= piu.user.email %></td>
+        <td ><%= piu.content %></td>
+        <td><%= piu.created_at.strftime("%d/%m/%Y - %H:%M")%> </td>
+        <td><%= link_to 'Show', piu, class:"btn btn-primary" %></td>
+        <% if piu.user == current_user %>
+        <td><%= link_to 'Edit', edit_piu_path(piu), class:"btn btn-info" %></td>
+        <td><%= link_to 'Destroy', piu, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-danger" %></td>
+
+        <% end %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Piu', new_piu_path, class:"btn btn-success" %>

@@ -1,0 +1,21 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+<div class="card">
+
+
+   <div class="card-header"><strong>User:</strong></div>
+  <div class="card-body"><%= @piu.user_id %></div>
+</div>
+
+</p>
+
+<p>
+<div class="card">
+  <div class="card-header"><strong >Content:</strong></div>
+   <div class="card-body"><%= @piu.content %></div>
+</p>
+</div>
+
+<%= link_to 'Edit', edit_piu_path(@piu) , class:"btn btn-info" %> |
+<%= link_to 'Back', pius_path ,class:"btn btn-primary" %>

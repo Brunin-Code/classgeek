@@ -1,0 +1,22 @@
+<%= form_with(model: piu, local: true) do |form|  %>
+  <% if piu.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(piu.errors.count, "error") %> prohibited this piu from being saved:</h2>
+
+      <ul>
+        <% piu.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field card">
+    <div class="card-header ,text-light bg-dark" ><%= form.label :content, class:"text-primary"  %></div>
+    <%= form.text_area :content, class:"text-info" %>
+  </div>
+
+  <div class="actions ">
+    <%= form.submit %>
+  </div>
+<% end %>
